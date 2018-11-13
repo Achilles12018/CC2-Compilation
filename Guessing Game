@@ -1,0 +1,44 @@
+package guessgame;
+
+import java.util.Random;
+import java.util.Scanner;
+public class GuessGame {
+
+   
+    public static void main(String[] args) {
+       Random alvin = new Random();
+       int secretNumber = alvin.nextInt(1000);
+       int tries = 0;
+       Scanner type = new Scanner(System.in);
+       int guess;
+       boolean win = false;
+       
+       while (win == false){
+         System.out.println("Enter your guess number from 1- 1000: ");
+          guess = type.nextInt();
+          tries++;
+         
+         if(guess < 0 || guess > 1000){
+           System.out.println("Invalid Input");
+         }
+         else if(guess == secretNumber){
+           win = true;
+         }
+         else if(guess < secretNumber){
+           System.out.println("Your guess is lower");
+         }
+         else if(guess > secretNumber){
+           System.out.println("Your guess is higher");
+         }
+         
+         if(secretNumber % 2 == 0){
+           System.out.println("It is an even number");
+         } else {
+            System.out.println("It is an odd number");
+         }
+       }
+       System.out.println("You win!!");
+       System.out.println("The number was " + secretNumber);
+       System.out.println("It took you " + tries + "tries");
+    }
+}
