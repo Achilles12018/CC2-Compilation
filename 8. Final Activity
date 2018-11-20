@@ -1,0 +1,89 @@
+package overall;
+
+import java.util.Scanner;
+public class OverAll {
+
+   
+    public static void main(String[] args) {
+        display();
+        }
+    public static void display(){
+     Scanner al = new Scanner(System.in);
+     String fa = "Factorial";
+     String fi = "Fibonacci";
+     String choice;
+     
+     
+      
+     do{
+     System.out.println("What do u want to get?(Factorial or Fibonacci)");
+     choice = al.nextLine();
+     
+     if("Factorial".equals(choice)){
+        System.out.println("Enter Array Size: ");
+         int size = al.nextInt();
+         int[] x = new int[size];
+     
+        System.out.println("Enter Elements: ");
+     for(int i = 0; i < x.length; i++){
+         x[i] = al.nextInt();
+        }
+        System.out.println("Factorial of Elements: ");
+     for(int i = 0; i < x.length; i++){
+         System.out.print("f(" + x[i] + ")" + "\t");
+         }
+         System.out.println("");
+     for(int i = 0; i < x.length; i++){
+             System.out.print(fact(x[i]) + "\t");
+            }
+            break;
+     }
+     
+     else if("Fibonacci".equals(choice)){
+           System.out.println("Enter Array Size: ");
+           int size = al.nextInt();
+           int[] x = new int[size];
+     
+           System.out.println("Enter Elements: ");
+        for(int i = 0; i < x.length; i++){
+           x[i] = al.nextInt();
+          }
+           System.out.println("Fibonacci Series: ");
+        for(int i = 0; i < x.length; i++){
+           System.out.print("f(" + x[i] + ")" + "\t");
+          }
+           System.out.println("");
+        for(int i = 0; i < x.length; i++){
+           System.out.print(fibo(x[i]) + "\t");
+            }
+            break;
+       } 
+      else {
+          System.out.println("Invalid Input!!");
+          }        
+      }while(choice != fa && choice != fi);
+     
+    }
+      
+    public static int fact(int x){
+    if(x == 1){
+    return 1;
+    }
+    else{
+         return (x * fact(x-1));
+    }
+    }
+   
+    public static int fibo(int x){
+    if(x == 0){
+    return 0;
+    }
+    else if(x == 1){
+    return 1;
+    }
+    else{
+         return fibo(x-1) + fibo(x-2);
+    }
+    }
+     
+    }
